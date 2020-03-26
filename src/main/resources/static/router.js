@@ -44,14 +44,6 @@ export const router = new VueRouter({
         }
       },
       {
-        name:"entryPoint2",
-        path: '',
-        component: home,
-        async beforeEnter(to, from, next){
-          checkToken(to, from, next)
-        }
-      },
-      {
      name:"register",
      path: '/register',
      component: register
@@ -92,7 +84,7 @@ async function checkToken(to, from, next){
     store.commit('setCurrentChannel', 1)
 
     if (result.ok){
-      next()
+      next('/home')
     }
   } catch (e){
     next('/login')
