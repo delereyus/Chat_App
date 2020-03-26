@@ -29,7 +29,7 @@ class MyWebMvcConfigurer implements WebMvcConfigurer {
                                                    Resource location) throws IOException {
                         Resource requestedResource = location.createRelative(resourcePath);
                         return requestedResource.exists() && requestedResource.isReadable() ? requestedResource
-                                : new ClassPathResource("/static/index.html");
+                                : new ClassPathResource("/static/Index.html");
                     }
                 });
     }
