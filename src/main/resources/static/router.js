@@ -37,7 +37,7 @@ export const router = new VueRouter({
       },
       {
         name:"entryPoint",
-        path: '/',
+        path: '/e',
         component: home,
         async beforeEnter(to, from, next){
           checkToken(to, from, next)
