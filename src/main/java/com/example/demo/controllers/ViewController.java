@@ -25,7 +25,7 @@ public class ViewController {
 
     @RequestMapping("/")
     public String hom(){
-        return "Hello World!";
+        return "static/index.html";
     }
 
     @GetMapping("/rest/auth/checkToken")
