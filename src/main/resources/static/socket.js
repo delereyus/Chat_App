@@ -1,7 +1,7 @@
 import { store } from './store.js'
 
     // change PORT to your backends PORT
-    const ws = new WebSocket('wss://nbi-chat-app.herokuapp.com:5000/your-socket-route')
+    const ws = new WebSocket('wss://nbi-chat-app.herokuapp.com/your-socket-route')
     export default ws
 
     ws.onmessage = (e) => {
