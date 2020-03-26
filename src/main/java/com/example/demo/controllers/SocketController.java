@@ -44,18 +44,6 @@ public class SocketController extends TextWebSocketHandler {
 
         socketService.sendToAll(socket, Socket.class);
 
-//    let sendOneObject = {
-//      action: "message",
-//      message: "Only messages the client that sent the socket event"
-//    }
-
-        Map map = Map.of("action", "message",
-                "message", "Only messages the client that sent the socket event");
-
-        System.out.println(map);
-
-        socketService.sendToOne(session, gson.toJson(map));
-
         // Demonstration purpose only: send back "Hello" + same message as received
 //    socketService.sendToAll("Hello " + message.getPayload());
 
