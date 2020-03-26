@@ -56,8 +56,8 @@ import com.example.demo.services.UserDetailsServiceImpl;
             http.cors().and().csrf().disable()
                     .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                     .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                    .authorizeRequests().antMatchers("/**").permitAll()
-                    .antMatchers("/**").permitAll()
+                    .authorizeRequests().antMatchers("/").permitAll()
+                    .antMatchers("/home").permitAll()
                     .anyRequest().authenticated();
 
             http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
