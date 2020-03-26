@@ -23,10 +23,10 @@ public class ViewController {
         return "Moderator Board.";
     }*/
 
-    @RequestMapping("/")
+    /*@RequestMapping("/")
     public String hom(){
         return "static/index.html";
-    }
+    }*/
 
     @GetMapping("/rest/auth/checkToken")
     @PreAuthorize("hasRole('ADMIN')")
