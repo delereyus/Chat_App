@@ -34,8 +34,6 @@ export default{
         <div class="rightBar">
           <onlineList />
         </div>
- 
-
     </div>
     `,
 
