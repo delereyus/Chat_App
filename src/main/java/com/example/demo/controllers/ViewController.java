@@ -23,6 +23,11 @@ public class ViewController {
         return "Moderator Board.";
     }*/
 
+    @RequestMapping("/")
+    public String hom(){
+        return "Hello World!";
+    }
+
     @GetMapping("/rest/auth/checkToken")
     @PreAuthorize("hasRole('ADMIN')")
     public String checkToken(){
