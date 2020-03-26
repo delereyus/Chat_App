@@ -21,7 +21,7 @@ export const router = new VueRouter({
             const tokenFromStorage = JSON.parse(localStorage.getItem('accessToken'))
             const us = tokenFromStorage.user
             
-            next('/')
+            next('/home')
           } catch(e){
             next()
           }
