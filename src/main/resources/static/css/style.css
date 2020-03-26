@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+body, html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-image: linear-gradient(rgb(71, 129,255), rgba(10, 2, 85, 0.856));
+}
+
+
+.hiddenGetUserMethod {
+  height: 0px;
+  width: 0px;
+}
+
+/*MESSAGES*/
+/*-------------------------------------------*/
+.messages {
+  background-color: rgb(1, 175, 175);         /*This one will not be here later. This is just to see what is what*/
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.messageDiv {
+  margin: 0;
+  display: flex;
+}
+
+.messageParagraph {
+  display: flex;
+}
+
+.messagePicture {
+  height: 2em;
+  width: 2em;
+  padding: 4px;
+  border-radius: 3px;
+}
+
+.removeMessage, .deleteMsgButton {
+  cursor: pointer;
+}
+/*-------------------------------------------*/
+
+/*LOGIN COMPONENT*/
+
+.LogInPage {
+  padding: 20px;
+  font-weight: 700;
+  text-align: center;
+  font-size: 45px;
+  color: #eee;
+}
+
+.h3LogIn {
+  text-align: center;
+  font-size: 25px;
+  color: #eee;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.loginForm input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  align-self: center;
+  width: 40%;
+}
+
+.showPasswordButton {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  align-self: center;
+  width: 15%;
+}
+
+.logInButton {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  align-self: center;
+  width: 15%;
+}
+
+.signUp {
+  padding: 30px;
+  font-size: 20px;
+  color: #eee;
+}
+
+/*-------------------------------------------*/
+
+/*REGISTER COMPONENT*/
+.registerPage {
+  padding: 20px;
+  font-weight: 700;
+  text-align: center;
+  font-size: 45px;
+  color: #eee;
+}
+
+.h3Register {
+  text-align: center;
+  font-size: 25px;
+  color: #eee;
+}
+
+.registerForm {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.registerForm input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  align-self: center;
+  width: 40%;
+}
+
+.registerBtn {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  align-self: center;
+  width: 15%;
+}
+
+.signUp {
+  padding: 30px;
+  font-size: 20px;
+  color: #eee;
+}
+
+
+/*-------------------------------------------*/
+
+/*FRIENDLIST*/
+
+.friendList {
+  background-color: #fff;
+  padding-bottom: 10px;
+}
+
+.friendList h3 {
+  margin: 0;
+  padding-top: 10px;
+  padding-left: 15px;
+}
+
+/*-------------------------------------------*/
+
+/*FRONT PAGE*/
+
+.frontPage {
+display: flex;
+justify-content: center;
+}
+
+.leftBar {
+  width: 25%;
+}
+
+.rightBar {
+  width: 25%;
+}
+
+.messagesView {
+  width: 50%;
+}
+
+/*-------------------------------------------*/
+
+/*MESSAGE INPUT*/
+
+.messageForm {
+  position: relative;
+}
+
+.messageForm textarea {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  resize: none;
+}
+
+.messageForm button {
+  position: absolute;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-right: 5px;
+  bottom: 0;
+  right: 0;
+}
+
+/*-------------------------------------------*/
+
+/*CHANNEL LIST COMPONENT*/
+
+.channelList {
+  list-style: none;
+  cursor: pointer;
+}
+
+.channelList:hover {
+  color: #eee;
+}
+
+/*-------------------------------------------*/
+
+/* friendList and userDetail Component */
+.modal {
+  position: absolute;
+  top: 10vh;
+  left: 10vw;
+  height: 80vh;
+  width: 80vw;
+  border: 2px solid #333;
+  background-color: #ddd;
+  padding: 20px;
+}
+
+.close-x {
+  text-align:right;
+}
+
+.close-x span {
+  cursor: pointer;
+  font-size: 30px;
+}
+/*-------------------------------------------*/
+
+/*ONLINE LIST*/
+
+.onlineList {
+  background-color: aqua;
+}
+
+.onlineList h3 {
+  margin: 0;
+  padding-top: 10px;
+}
+
+/*-------------------------------------------*/
+
+/*CHANNEL*/
+
+.channel {
+  padding-left: 15px;
+}
