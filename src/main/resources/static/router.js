@@ -21,21 +21,20 @@ export const router = new VueRouter({
             const tokenFromStorage = JSON.parse(localStorage.getItem('accessToken'))
             const us = tokenFromStorage.user
             
-            next('/home')
+            next('/')
           } catch(e){
             next()
           }
         }
       },
       {
-        name:"home",
-        path: '/home',
+        name:"entryPoint",
+        path: '/',
         component: home,
-        async beforeEnter(to, from, next) {
+        async beforeEnter(to, from, next){
           checkToken(to, from, next)
-        } 
+        }
       },
-      
       {
      name:"register",
      path: '/register',
@@ -77,7 +76,7 @@ async function checkToken(to, from, next){
     store.commit('setCurrentChannel', 1)
 
     if (result.ok){
-      next('/home')
+      next()
     }
   } catch (e){
     next('/login')

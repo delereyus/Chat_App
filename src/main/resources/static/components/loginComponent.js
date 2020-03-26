@@ -78,7 +78,7 @@ export default{
             console.log(e)
           }
         }
-        router.push('/home')          
+        router.push('/')          
       },
 
       showOrHidePassword(){
