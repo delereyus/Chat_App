@@ -35,14 +35,7 @@ export const router = new VueRouter({
           checkToken(to, from, next)
         } 
       },
-      {
-        name:"entryPoint",
-        path: '/',
-        component: home,
-        async beforeEnter(to, from, next){
-          checkToken(to, from, next)
-        }
-      },
+      
       {
      name:"register",
      path: '/register',
