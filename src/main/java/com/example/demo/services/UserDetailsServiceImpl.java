@@ -1,5 +1,6 @@
 package com.example.demo.services;
 
+import com.example.demo.entities.ERole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

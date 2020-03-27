@@ -4,8 +4,10 @@ package com.example.demo.services;
 import com.example.demo.entities.User;
 import com.example.demo.repositories.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -15,6 +17,13 @@ public class UserService {
 
     @Autowired
     SocketService socketService;
+
+    public Optional<User> findCurrentUser() {
+        // the login session is stored between page reloads,
+        // and we can access the current authenticated user with this
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        return userRepo.findByUsername(username);
+    }
 
     public List<User> findAllUsers() {
         return (List<User>) userRepo.findAll();

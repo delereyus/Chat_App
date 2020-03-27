@@ -41,7 +41,7 @@ export default{
             console.log(e)
           }
 
-          localStorage.clear()
+          localStorage.removeItem('accessToken')
           disconnect()
           this.$router.push('/login')
         }
