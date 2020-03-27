@@ -46,8 +46,7 @@ public class AuthController {
 
     @Autowired
     RoleRepository roleRepository;
-
-    @Autowired
+    
     private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
     public BCryptPasswordEncoder getEncoder() { return encoder; }
 
