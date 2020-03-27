@@ -51,7 +51,7 @@ export default{
             let result = await fetch("/login", {
               method: "POST",
               headers: { "Content-Type": "application/x-www-form-urlencoded" },
-              body: credentials
+              body: userToLogin
             })
   
             result = await result.json()
