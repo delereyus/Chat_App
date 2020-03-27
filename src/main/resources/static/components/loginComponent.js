@@ -37,9 +37,9 @@ export default{
         const url = '/rest/auth/signin'
 
         const userToLogin = 'username=' +
-        encodeURIComponent(username)
+        encodeURIComponent(this.username)
         + '&password=' +
-        encodeURIComponent(password)        
+        encodeURIComponent(this.password)        
 
         try{
           const alreadyLoggedIn = JSON.parse(localStorage.getItem('accessToken'))
