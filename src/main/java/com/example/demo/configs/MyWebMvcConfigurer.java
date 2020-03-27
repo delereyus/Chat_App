@@ -1,6 +1,7 @@
 package com.example.demo.configs;
 
 import org.apache.commons.dbcp.BasicDataSource;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -36,18 +37,22 @@ class MyWebMvcConfigurer implements WebMvcConfigurer {
                 });
     }
 
+    @Value("${spring.datasource.url}")
+    private String dbUr;
+
+    @Value("${spring.datasource.username}")
+    private String dbUsr;
+
+    @Value("${spring.datasource.password}")
+    private String dbPwd;
+
     @Bean
     public BasicDataSource dataSource() throws URISyntaxException {
-        URI dbUri = new URI(System.getenv("CLEARDB_DATABASE_URL"));
-
-        String username = dbUri.getUserInfo().split(":")[0];
-        String password = dbUri.getUserInfo().split(":")[1];
-        String dbUrl = "jdbc:mysql://" + dbUri.getHost() + dbUri.getPath();
 
         BasicDataSource basicDataSource = new BasicDataSource();
-        basicDataSource.setUrl(dbUrl);
-        basicDataSource.setUsername(username);
-        basicDataSource.setPassword(password);
+        basicDataSource.setUrl(dbUr);
+        basicDataSource.setUsername(dbUsr);
+        basicDataSource.setPassword(dbPwd);
 
         return basicDataSource;
     }
