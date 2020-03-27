@@ -36,10 +36,10 @@ export default{
       async logIn(){
         const url = '/rest/auth/signin'
 
-        const userToLogin = 'username=' +
-        encodeURIComponent(this.username)
-        + '&password=' +
-        encodeURIComponent(this.password)        
+        const userToLogin = {
+          username: this.username,
+          password: this.password
+        }        
 
         try{
           const alreadyLoggedIn = JSON.parse(localStorage.getItem('accessToken'))
@@ -49,9 +49,11 @@ export default{
         } catch (e){
           try{
             let result = await fetch(url, {
-              method: "POST",
-              headers: { "Content-Type": "application/x-www-form-urlencoded" },
-              body: userToLogin
+            method:'POST',
+            headers: {
+              'Content-Type':'application/json'
+            },
+            body: JSON.stringify(userToLogin)
             })
   
             result = await result.json()
