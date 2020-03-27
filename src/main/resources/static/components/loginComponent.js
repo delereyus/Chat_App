@@ -48,7 +48,7 @@ export default{
           console.log('You are already logged in as: ' + us.username + '!\n Please log out before attempting another login!')
         } catch (e){
           try{
-            let result = await fetch("/login", {
+            let result = await fetch(url, {
               method: "POST",
               headers: { "Content-Type": "application/x-www-form-urlencoded" },
               body: userToLogin
