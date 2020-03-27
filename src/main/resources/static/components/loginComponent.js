@@ -36,10 +36,10 @@ export default{
       async logIn(){
         const url = '/rest/auth/signin'
 
-        const userToLogin = {
-          username: this.username,
-          password: this.password
-        }        
+        const userToLogin = 'username=' +
+        encodeURIComponent(username)
+        + '&password=' +
+        encodeURIComponent(password)        
 
         try{
           const alreadyLoggedIn = JSON.parse(localStorage.getItem('accessToken'))
@@ -48,12 +48,10 @@ export default{
           console.log('You are already logged in as: ' + us.username + '!\n Please log out before attempting another login!')
         } catch (e){
           try{
-            let result = await fetch(url, {
-            method:'POST',
-            headers: {
-              'Content-Type':'application/json'
-            },
-            body: JSON.stringify(userToLogin)
+            let result = await fetch("/login", {
+              method: "POST",
+              headers: { "Content-Type": "application/x-www-form-urlencoded" },
+              body: credentials
             })
   
             result = await result.json()
