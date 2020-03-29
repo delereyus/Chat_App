@@ -36,25 +36,5 @@ class MyWebMvcConfigurer implements WebMvcConfigurer {
                     }
                 });
     }
-
-    @Value("${spring.datasource.url}")
-    private String dbUr;
-
-    @Value("${spring.datasource.username}")
-    private String dbUsr;
-
-    @Value("${spring.datasource.password}")
-    private String dbPwd;
-
-    @Bean
-    public BasicDataSource dataSource() throws URISyntaxException {
-
-        BasicDataSource basicDataSource = new BasicDataSource();
-        basicDataSource.setUrl(dbUr);
-        basicDataSource.setUsername(dbUsr);
-        basicDataSource.setPassword(dbPwd);
-
-        return basicDataSource;
-    }
 }
 
