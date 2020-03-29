@@ -4,11 +4,12 @@ export default{
   template: `
       <div>
         <form class="messageForm" @submit.prevent="submitMessage">
-        <textarea class="messageTextArea" type="text" 
+        <textarea type="text" 
         v-model="messageInput" 
         placeholder="Type your message here..." 
         rows="10" 
-        cols="30"   
+        cols="30" 
+        @keyup.enter="submitMessage"
         required></textarea>
         <button>Send</button>
         </form>

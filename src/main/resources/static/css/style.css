@@ -36,6 +36,8 @@ body {
 
 .messageParagraph {
   display: flex;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 .messagePicture {
@@ -208,9 +210,6 @@ justify-content: center;
   right: 0;
 }
 
-.messageTextArea {
-  word-wrap: break-word;
-}
 
 /*-------------------------------------------*/
 
