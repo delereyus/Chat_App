@@ -133,6 +133,7 @@ public class AuthController {
 
         user.setRoles(roles);
 
+        user.setOnline(false);
         User newUser = userRepository.save(user);
         newUser.action = "new-user";
 
