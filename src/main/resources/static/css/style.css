@@ -36,6 +36,9 @@ body {
 
 .messageParagraph {
   display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  min-width: 0;
   white-space: pre-wrap;
   word-wrap: break-word;
 }

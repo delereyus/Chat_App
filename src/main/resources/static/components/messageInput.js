@@ -9,7 +9,7 @@ export default{
         placeholder="Type your message here..." 
         rows="10" 
         cols="30" 
-        @keyup.enter="submitMessage"
+        
         required></textarea>
         <button>Send</button>
         </form>
