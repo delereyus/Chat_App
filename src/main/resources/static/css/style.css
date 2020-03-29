@@ -209,7 +209,7 @@ justify-content: center;
 }
 
 .messageTextArea {
-  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 /*-------------------------------------------*/
