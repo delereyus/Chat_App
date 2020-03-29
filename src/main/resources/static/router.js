@@ -78,7 +78,10 @@ async function checkToken(to, from, next){
       store.commit('loginUser', currentUser)
       store.commit('setCurrentChannel', 1)
       next()
-    } else next('/login')
+    } else {
+      localStorage.removeItem('accessToken')
+      next('/login')
+    } 
   } catch (e){
     next('/login')
   }

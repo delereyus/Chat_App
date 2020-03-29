@@ -131,9 +131,11 @@ public class AuthController {
             });
         }
 
+        user.setRoles(roles);
+
         User newUser = userRepository.save(user);
         newUser.action = "new-user";
-        newUser.setOnline(true);
+
         socketService.sendToAll(newUser, User.class);
         UserChannel newUserChannel = new UserChannel(1, newUser.getId());
         userChannelRepo.save(newUserChannel);
