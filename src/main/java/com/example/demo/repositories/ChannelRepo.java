@@ -12,13 +12,13 @@ import java.util.List;
 public interface ChannelRepo extends CrudRepository <Channel, Integer> {
 
     public Channel findById (int id);
-    public List<Channel> findAllByAdminId(int adminId);
+    public List<Channel> findAllByAdminid(int adminId);
     public Channel findByNameIgnoreCase(String name);
 
     //Moved query from UserChannelRepo here. Since we need channel list of a user.
     //PS: nativeQuery lets me write query as it is in database.
     //Otherwise I'd need to use class names, and their field variable names instead.
-    @Query(value = "SELECT channels.id, channels.name, channels.admin_id FROM" +
+    @Query(value = "SELECT channels.id, channels.name, channels.adminid FROM" +
             " channels, users_channels WHERE" +
             " channel_id = channels.id " +
             "AND user_id = ?1", nativeQuery = true)

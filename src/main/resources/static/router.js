@@ -47,15 +47,14 @@ export const router = new VueRouter({
 async function checkToken(to, from, next){
   try{
     const tokenFromStorage = JSON.parse(localStorage.getItem('accessToken'))
-    const us = tokenFromStorage.user
+    const us = tokenFromStorage.user.username
 
     const userAndToken = {
       user: tokenFromStorage.user,
       token: tokenFromStorage.token
     }
-    store.commit('saveAccessToken', userAndToken)
 
-    const bearer = 'Bearer ' + store.state.userAndToken.token
+    const bearer = 'Bearer ' + userAndToken.token
 
     let result
 
@@ -67,17 +66,19 @@ async function checkToken(to, from, next){
       })
     } catch(e){
       console.log(e)
-    } 
-
-    let currentUser = await fetch('/rest/users/' + store.state.userAndToken.user.id)
-    currentUser = await currentUser.json()
-    
-    store.commit('loginUser', currentUser)
-    store.commit('setCurrentChannel', 1)
-
-    if (result.ok){
-      next()
     }
+
+    console.log(result.ok)
+    
+    if (result.ok){
+      
+      store.commit('saveAccessToken', userAndToken)
+      let currentUser = await fetch('/rest/users/' + store.state.userAndToken.user.id)
+      currentUser = await currentUser.json()
+      store.commit('loginUser', currentUser)
+      store.commit('setCurrentChannel', 1)
+      next()
+    } else next('/login')
   } catch (e){
     next('/login')
   }

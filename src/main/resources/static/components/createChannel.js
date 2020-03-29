@@ -27,7 +27,7 @@ export default{
             
             let newChannel = {
                 name: this.name,
-                admin_id: this.$store.state.currentUser.id
+                adminid: this.$store.state.currentUser.id
             }
 
         try{
