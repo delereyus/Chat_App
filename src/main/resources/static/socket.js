@@ -9,7 +9,7 @@ import { store } from './store.js'
 
       switch(data.action) {
         case 'new-user':
-          store.commit('appendUser', user)
+          store.commit('appendUser', data)
           break
         case 'goOnline':
           store.commit('goOnline', data)
