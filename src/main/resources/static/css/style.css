@@ -208,6 +208,10 @@ justify-content: center;
   right: 0;
 }
 
+.messageTextArea {
+  white-space: pre-wrap;
+}
+
 /*-------------------------------------------*/
 
 /*CHANNEL LIST COMPONENT*/
