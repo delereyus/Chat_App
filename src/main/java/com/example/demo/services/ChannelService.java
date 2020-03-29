@@ -24,7 +24,7 @@ public class ChannelService {
     }
 
     public List<Channel> findAllByAdminId(int adminId){
-        return channelRepo.findAllByAdminId(adminId);
+        return channelRepo.findAllByAdminid(adminId);
     }
 
     public Channel findByNameIgnoreCase(String name){

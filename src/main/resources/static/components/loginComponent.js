@@ -43,9 +43,9 @@ export default{
 
         try{
           const alreadyLoggedIn = JSON.parse(localStorage.getItem('accessToken'))
-          const us = alreadyLoggedIn.user
+          const us = alreadyLoggedIn.user.username
 
-          console.log('You are already logged in as: ' + us.username + '!\n Please log out before attempting another login!')
+          console.log('You are already logged in as: ' + us + '!\n Please log out before attempting another login!')
         } catch (e){
           try{
             let result = await fetch(url, {
@@ -55,11 +55,12 @@ export default{
             },
             body: JSON.stringify(userToLogin)
             })
-  
+
             result = await result.json()
-            console.log(result)
-  
-            let user = await fetch('/rest/users/' + result.id)
+            console.log(result.error)
+
+            if (!result.error){
+              let user = await fetch('/rest/users/' + result.id)
             user = await user.json()
   
             console.log(user)
@@ -70,10 +71,9 @@ export default{
             }
   
             console.log(userAndToken)
-  
             this.$store.commit('saveAccessToken', userAndToken)
-            
-            console.log(this.$store.state.userAndToken)
+            }
+
           } catch (e){
             console.log(e)
           }

@@ -11,7 +11,7 @@ public class Channel {
 
     private int id;
     private String name;
-    private int adminId;
+    private int adminid;
 
     @Transient
     public String action;
@@ -35,11 +35,11 @@ public class Channel {
         this.name = name;
     }
 
-    public int getAdminId() {
-        return adminId;
+    public int getAdminid() {
+        return adminid;
     }
 
-    public void setAdminId(int adminId) {
-        this.adminId = adminId;
+    public void setAdminid(int adminid) {
+        this.adminid = adminid;
     }
 }
