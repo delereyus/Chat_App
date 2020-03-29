@@ -11,11 +11,13 @@ import com.example.demo.configs.JwtUtils;
 import com.example.demo.entities.ERole;
 import com.example.demo.entities.Role;
 import com.example.demo.entities.User;
+import com.example.demo.entities.UserChannel;
 import com.example.demo.payloads.JwtResponse;
 import com.example.demo.payloads.LoginRequest;
 import com.example.demo.payloads.MessageResponse;
 import com.example.demo.payloads.SignupRequest;
 import com.example.demo.repositories.RoleRepository;
+import com.example.demo.repositories.UserChannelRepo;
 import com.example.demo.repositories.UserRepo;
 import com.example.demo.services.SocketService;
 import com.example.demo.services.UserDetailsImpl;
@@ -46,6 +48,9 @@ public class AuthController {
 
     @Autowired
     RoleRepository roleRepository;
+
+    @Autowired
+    UserChannelRepo userChannelRepo;
     
     private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
     public BCryptPasswordEncoder getEncoder() { return encoder; }
@@ -126,8 +131,12 @@ public class AuthController {
             });
         }
 
-        user.setRoles(roles);
-        userRepository.save(user);
+        User newUser = userRepository.save(user);
+        newUser.action = "new-user";
+        newUser.setOnline(true);
+        socketService.sendToAll(newUser, User.class);
+        UserChannel newUserChannel = new UserChannel(1, newUser.getId());
+        userChannelRepo.save(newUserChannel);
 
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
     }
