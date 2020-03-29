@@ -26,7 +26,10 @@ body {
   background-color: rgb(1, 175, 175);         /*This one will not be here later. This is just to see what is what*/
   display: flex;
   flex-direction: column;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .messageDiv {
@@ -34,6 +37,7 @@ body {
   width: 100%;
   margin: 0;
   display: flex;
+  overflow-wrap: break-word;
   word-wrap: break-word;
 }
 
