@@ -25,6 +25,10 @@ export const store = new Vuex.Store({
         state.users = users;
       },
 
+      loadOnlineUsers(state, users){
+        state.onlineUsers = users
+      },
+
       displayChannels(state, channels){
         state.channels = channels;
       },

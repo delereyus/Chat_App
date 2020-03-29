@@ -48,11 +48,8 @@ export default{
 
         let onlineUsers = users.filter(user => user.online)
         console.log(onlineUsers)
-
-        for (let user of onlineUsers){
-          if (!this.$store.state.onlineUsers.includes(user))
-          this.$store.commit('goOnline', user)
-        }
+          
+        this.$store.commit('loadOnlineUsers', onlineUsers)
     },
 
       async loadMessages(){
