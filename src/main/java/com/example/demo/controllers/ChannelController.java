@@ -38,4 +38,14 @@ public class ChannelController {
     public Channel createNewChannel(@RequestBody Channel newChannel){
         return channelService.createNewChannel(newChannel);
     }
+
+    @PutMapping("/channels")
+    public Channel changeChannelName(@RequestBody Channel idAndName){
+        return channelService.changeChannelName(idAndName);
+    }
+
+    @DeleteMapping("/channels/{id}")
+    public void deleteChannel(@PathVariable int id){
+        channelService.deleteChannel(id);
+    }
 }

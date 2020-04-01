@@ -1,7 +1,9 @@
 package com.example.demo.services;
 
 import com.example.demo.entities.Channel;
+import com.example.demo.entities.DeleteClass;
 import com.example.demo.repositories.ChannelRepo;
+import org.hibernate.sql.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -49,5 +51,34 @@ public class ChannelService {
         return channel;
     }
 
+    public Channel changeChannelName(Channel idAndName){
+        Channel channel = null;
+
+        try{
+            channel = channelRepo.save(idAndName);
+
+            channel.action = "change-channel-name";
+
+            socketService.sendToAll(channel, Channel.class);
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return channel;
+    }
+
+    public void deleteChannel(int id){
+        DeleteClass deleteChannel = new DeleteClass();
+
+        try{
+            deleteChannel.setIndex(id);
+            deleteChannel.setAction("delete-channel");
+            channelRepo.deleteById(id);
+            socketService.sendToAll(deleteChannel, DeleteClass.class);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+    }
 
 }

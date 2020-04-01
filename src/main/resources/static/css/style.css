@@ -1,198 +1,138 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
 
 * {
-  box-sizing: border-box;
-  font-family: 'Ubuntu', sans-serif;
+	box-sizing: border-box;
+	font-family: 'Ubuntu', sans-serif;
 }
 
-body, html {
+body,
+html {
   height: 100%;
 }
 
 body {
-  margin: 0;
-  background-image: linear-gradient(rgb(71, 129,255), rgba(10, 2, 85, 0.856));
+	margin: 0;
+  background-image: linear-gradient(rgb(71, 129, 255), rgba(10, 2, 85, 0.856));
 }
 
 
 .hiddenGetUserMethod {
-  height: 0px;
-  width: 0px;
+	height: 0px;
+	width: 0px;
 }
 
-/*MESSAGES*/
-/*-------------------------------------------*/
-.messages {
-  background-color: rgb(1, 175, 175);         /*This one will not be here later. This is just to see what is what*/
+/*CHANNEL COMPONENT*/
+
+.channelComponent {
+  height: 100vh;
   display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.msgDiv {
+  
+  height: 100%;
+  overflow: hidden;
+}
+
+.msgInputDiv {
+
+}
+
+
+/*-------------------------------------------*/
+/*MESSAGES*/
+
+.messages {
+	background-color: rgb(1, 175, 175); /*This one will not be here later. This is just to see what is what*/
+  width: 100%;
+  height: 100%;
+	display: flex;
   flex-direction: column;
   overflow-y: auto;
   overflow-x: hidden;
+	min-width: 0;
   overflow-wrap: break-word;
-  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .messageDiv {
   display: flex;
+  flex-direction: row;
   width: 100%;
-  margin: 0;
-  display: flex;
+  height: 100%;
+	margin: 0;
+  min-width: 0;
+  overflow: hidden;
   overflow-wrap: break-word;
-  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .messageParagraph {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   width: 100%;
   min-width: 0;
+  margin-top: 0;
+  margin-left: 2.5em;
   white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  overflow: hidden;
+}
+
+.msgUser {
+  margin-bottom: 0;
+  margin-left: 0.5em;
+}
+
+.msgP {
+  margin-top: 0;
 }
 
 .messagePicture {
-  height: 2em;
-  width: 2em;
-  padding: 4px;
+	height: 2em;
+	width: 2em;
+	padding: 4px;
   border-radius: 3px;
+  margin-top: 0.5em;
 }
 
-.removeMessage, .deleteMsgButton {
-  cursor: pointer;
-}
-/*-------------------------------------------*/
-
-/*LOGIN COMPONENT*/
-
-.LogInPage {
-  padding: 20px;
-  font-weight: 700;
-  text-align: center;
-  font-size: 45px;
-  color: #eee;
-}
-
-.h3LogIn {
-  text-align: center;
-  font-size: 25px;
-  color: #eee;
-}
-
-.loginForm {
+.userAndPicDiv {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.userAndPicDiv h4 {
+  margin-top: 1em;
+}
+
+.newMessageAlert {
+  font-size: 0.6em;
+  line-height: 3em;
   text-align: center;
+  color: red;
+  border: solid 1px black;
+  border-radius: 2px;
+  margin-bottom: 0;
+  margin-left: 5em;
 }
 
-.loginForm input {
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  align-self: center;
-  width: 40%;
-}
-
-.showPasswordButton {
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  align-self: center;
-  width: 15%;
-}
-
-.logInButton {
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  align-self: center;
-  width: 15%;
-}
-
-.signUp {
-  padding: 30px;
-  font-size: 20px;
-  color: #eee;
-}
-
-/*-------------------------------------------*/
-
-/*REGISTER COMPONENT*/
-.registerPage {
-  padding: 20px;
-  font-weight: 700;
-  text-align: center;
-  font-size: 45px;
-  color: #eee;
-}
-
-.h3Register {
-  text-align: center;
-  font-size: 25px;
-  color: #eee;
-}
-
-.registerForm {
+.timeAndMessage {
   display: flex;
-  flex-direction: column;
-  text-align: center;
+  flex-direction: row;
 }
 
-.registerForm input {
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  align-self: center;
-  width: 40%;
+.messageTime {
+  margin-bottom: 0;
+  margin-left: 2em;
 }
 
-.registerBtn {
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  align-self: center;
-  width: 15%;
-}
-
-.signUp {
-  padding: 30px;
-  font-size: 20px;
-  color: #eee;
-}
-
-
-/*-------------------------------------------*/
-
-/*FRIENDLIST*/
-
-.friendList {
-  background-color: #fff;
-  padding-bottom: 10px;
-}
-
-.friendList h3 {
-  margin: 0;
-  padding-top: 10px;
-  padding-left: 15px;
-}
-
-/*-------------------------------------------*/
-
-/*FRONT PAGE*/
-
-.frontPage {
-display: flex;
-justify-content: center;
-}
-
-.leftBar {
-  width: 25%;
-}
-
-.rightBar {
-  width: 25%;
-}
-
-.messagesView {
-  width: 50%;
+.removeMessage,
+.deleteMsgButton {
+	cursor: pointer;
 }
 
 /*-------------------------------------------*/
@@ -200,72 +140,206 @@ justify-content: center;
 /*MESSAGE INPUT*/
 
 .messageForm {
-  position: relative;
+	position: relative;
 }
 
 .messageForm textarea {
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  resize: none;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	resize: none;
 }
 
 .messageForm button {
-  position: absolute;
-  padding: 10px;
-  margin-bottom: 10px;
-  margin-right: 5px;
-  bottom: 0;
-  right: 0;
+	position: absolute;
+	padding: 10px;
+	margin-bottom: 10px;
+	margin-right: 5px;
+	bottom: 0;
+	right: 0;
 }
 
+/*-------------------------------------------*/
+
+/*LOGIN COMPONENT*/
+
+.LogInPage {
+	padding: 20px;
+	font-weight: 700;
+	text-align: center;
+	font-size: 45px;
+	color: #eee;
+}
+
+.h3LogIn {
+	text-align: center;
+	font-size: 25px;
+	color: #eee;
+}
+
+.loginForm {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+
+.loginForm input {
+	padding: 10px;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	align-self: center;
+	width: 40%;
+}
+
+.showPasswordButton {
+	padding: 10px;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	align-self: center;
+	width: 15%;
+}
+
+.logInButton {
+	padding: 10px;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	align-self: center;
+	width: 15%;
+}
+
+.signUp {
+	padding: 30px;
+	font-size: 20px;
+	color: #eee;
+}
+
+/*-------------------------------------------*/
+
+/*REGISTER COMPONENT*/
+.registerPage {
+	padding: 20px;
+	font-weight: 700;
+	text-align: center;
+	font-size: 45px;
+	color: #eee;
+}
+
+.h3Register {
+	text-align: center;
+	font-size: 25px;
+	color: #eee;
+}
+
+.registerForm {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+
+.registerForm input {
+	padding: 10px;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	align-self: center;
+	width: 40%;
+}
+
+.registerBtn {
+	padding: 10px;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	align-self: center;
+	width: 15%;
+}
+
+.signUp {
+	padding: 30px;
+	font-size: 20px;
+	color: #eee;
+}
+
+/*-------------------------------------------*/
+
+/*FRIENDLIST*/
+
+.friendList {
+	background-color: #fff;
+	padding-bottom: 10px;
+}
+
+.friendList h3 {
+	margin: 0;
+	padding-top: 10px;
+	padding-left: 15px;
+}
+
+/*-------------------------------------------*/
+
+/*FRONT PAGE*/
+
+.frontPage {
+	display: flex;
+	justify-content: center;
+}
+
+.leftBar {
+	width: 25%;
+}
+
+.rightBar {
+	width: 25%;
+}
+
+.messagesView {
+	width: 50%;
+}
 
 /*-------------------------------------------*/
 
 /*CHANNEL LIST COMPONENT*/
 
 .channelList {
-  list-style: none;
-  cursor: pointer;
+	list-style: none;
+	cursor: pointer;
 }
 
 .channelList:hover {
-  color: #eee;
+	color: #eee;
 }
 
 /*-------------------------------------------*/
 
 /* friendList and userDetail Component */
 .modal {
-  position: absolute;
-  top: 10vh;
-  left: 10vw;
-  height: 80vh;
-  width: 80vw;
-  border: 2px solid #333;
-  background-color: #ddd;
-  padding: 20px;
+	position: absolute;
+	top: 10vh;
+	left: 10vw;
+	height: 80vh;
+	width: 80vw;
+	border: 2px solid #333;
+	background-color: #ddd;
+	padding: 20px;
 }
 
 .close-x {
-  text-align:right;
+	text-align: right;
 }
 
 .close-x span {
-  cursor: pointer;
-  font-size: 30px;
+	cursor: pointer;
+	font-size: 30px;
 }
 /*-------------------------------------------*/
 
 /*ONLINE LIST*/
 
 .onlineList {
-  background-color: aqua;
+	background-color: aqua;
 }
 
 .onlineList h3 {
-  margin: 0;
-  padding-top: 10px;
+	margin: 0;
+	padding-top: 10px;
 }
 
 /*-------------------------------------------*/
@@ -273,5 +347,34 @@ justify-content: center;
 /*CHANNEL*/
 
 .channel {
-  padding-left: 15px;
+	padding-left: 15px;
+}
+
+/*-------------------------------------------*/
+
+/*ADMIN WINDOW*/
+
+.kickUsersDiv {
+  margin-top: 3em;
+}
+
+.usersToKick {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 1em;
+}
+
+.usersInChannels {
+  display: flex;
+  flex-direction: row;
+}
+
+.kickUser {
+  cursor: pointer;
+  margin: 0;
+}
+
+.userInAdminWindow {
+  margin: 0;
 }

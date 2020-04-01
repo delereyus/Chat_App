@@ -18,6 +18,7 @@ public class User {
     private String password;
     private String picture_url;
     private boolean online;
+    private long logoff_time;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(	name = "user_roles",
@@ -34,6 +35,14 @@ public class User {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+
+    public long getLogoff_time() {
+        return logoff_time;
+    }
+
+    public void setLogoff_time(long logoff_time) {
+        this.logoff_time = logoff_time;
     }
 
     public Set<Role> getRoles() {

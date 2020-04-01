@@ -43,6 +43,9 @@ public class UserController {
         return userService.register(user);
     }
 
+    @PutMapping("/users")
+    public User updateUser(@RequestBody User user){ return userService.updateUser(user);}
+
 
 
 }

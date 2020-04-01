@@ -20,6 +20,16 @@ public class UserChannelController {
         return userChannelService.findAllUserChannels(id);
     }
 
+    @GetMapping("users/channels")
+    public List<UserChannel> getAllUserChannels() {
+        return userChannelService.findAll();
+    }
+
     @PostMapping("/userChannels")
     public UserChannel addUserToChannel(@RequestBody UserChannel userChannel) { return userChannelService.addUserToChannel(userChannel); }
+
+    @DeleteMapping("/userChannels")
+    public void deleteUserChannel(@RequestBody UserChannel userChannel) {
+        userChannelService.deleteUserChannel(userChannel);
+    }
 }

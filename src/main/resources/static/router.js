@@ -76,12 +76,11 @@ async function checkToken(to, from, next){
       let currentUser = await fetch('/rest/users/' + store.state.userAndToken.user.id)
       currentUser = await currentUser.json()
       store.commit('loginUser', currentUser)
-      store.commit('setCurrentChannel', 1)
       next()
     } else {
       localStorage.removeItem('accessToken')
       next('/login')
-    } 
+    }
   } catch (e){
     next('/login')
   }

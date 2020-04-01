@@ -14,6 +14,9 @@ public class UserChannel implements Serializable {
     @Id
     private int user_id;
 
+    @Transient
+    public String action;
+
     public UserChannel() {
     }
 

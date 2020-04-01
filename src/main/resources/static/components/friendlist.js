@@ -15,9 +15,9 @@ export default{
           </li>
         </ul>
         <div v-if="showModal" class="modal-route">
-              <div class="modal-content"> 
-                <userDetails :friend="activeFriend"/>
-               </div>
+          <div class="modal-content"> 
+            <userDetails :friend="activeFriend"/>
+          </div>
         </div>
     </div>
   `,
